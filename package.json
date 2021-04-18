@@ -1,0 +1,20 @@
+{
+  "name": "sample-babel",
+  "version": "1.0.0",
+  "description": "- `index.html`\r - `index.js` : backtick(`) 사용(ES6문법)으로 IE에서는 오류 발생하도록 작성했습니다.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sosohanya/sample-babel.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sosohanya/sample-babel/issues"
+  },
+  "homepage": "https://github.com/sosohanya/sample-babel#readme"
+}
