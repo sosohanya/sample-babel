@@ -186,3 +186,8 @@ npm start
 ```
 
 "start" -> "build"를 호출하므로 `npx babel index.js -d lib` 명령어를 직접 실행한것고 동일한 역할 
+
+여기까지 git branch : https://github.com/sosohanya/sample-babel/tree/step05-package.json-scripts
+
+
+Git : https://github.com/sosohanya/sample-babel
