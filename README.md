@@ -54,3 +54,50 @@ npm init -y
     - 본인이 만든 library 배포하거나, 다른 환경에서 작업 또는 다른 사람과 함께 작업을 할 경우, 환경마다 또는 작업하는 사람에게 가서 각 명령어들을 직접 입력하여 (버전까지 맞춰서) 설치하고 하는 작업들 일일이 할 수 없으니, `npm install` 명령어 하나로 package.json에 있는 devDependencies/dependencies 목록에 있는 것들을 npm이 자동으로 다운로드/설치가 가능합니다.
 
 - package.json의 `"scripts"` 항목 설정에 따라, 명령어를 단축화 할 수 있습니다. 
+
+여기까지 git branch : https://github.com/sosohanya/sample-babel/tree/step02-npm-init
+
+
+## 3. Babel 설치 
+
+### 3.1 Install packages  
+
+공식 문서 : https://babeljs.io/docs/en/usage  
+```shell
+npm install --save-dev @babel/core @babel/cli @babel/preset-env
+```
+
+### 3.2 위 명령어 실행후 
+- `/node_modules` 폴더가 생성됨
+- `package-lock.json` 파일이 생성됨
+- `package.json` 파일이 수정됨
+
+### 3.3 F 파일 생성 및 설정
+
+#### 3.3.1 `babel.config.json` 파일 생성
+#### 3.3.2 아래 내용 입력 
+
+```json
+{
+  "presets": ["@babel/preset-env"]
+}
+```
+
+프리셋 관련 좋은 설명 블로그 URL : https://jeonghwan-kim.github.io/series/2019/12/22/frontend-dev-env-babel.html#4-%ED%94%84%EB%A6%AC%EC%85%8B 
+
+
+
+#### !참고! `--save-dev`로 설치하는 이유
+Babel은 브라우저가 이해할 수 있는 코드로 변환(build?)해 주는 내용이라, 개발 부분에만 있으면 됩니다. 
+
+#### !참고! 
+- @babel/core : Babel의 핵심 기능 
+- @babel/cli : terminal에서 Babel을 사용할 수 있게 해주는 도구
+- @babel/preset-env : 최신 Javascript 구문을 대상 환경에 맞는 구문으로 변환해주는 도구
+
+공식 문서 중 `npm install --save @babel/polyfill` 의 경우, 7.4.0 버전부터 deprecate 되었다고 설명되어있습니다. (참고 : https://babeljs.io/docs/en/usage#polyfill ) 
+
+#### !참고! git에 올릴 예정이라면
+- `/node_modules` 폴더내의 엄청나게 많은 파일들이 git 변경사항으로 표시됨
+- `/node_modules` 폴더 내용은 `npm install`로 언제든 생성가능하므로 `gitignore`에 추가 
+

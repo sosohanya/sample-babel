@@ -16,5 +16,10 @@
   "bugs": {
     "url": "https://github.com/sosohanya/sample-babel/issues"
   },
-  "homepage": "https://github.com/sosohanya/sample-babel#readme"
+  "homepage": "https://github.com/sosohanya/sample-babel#readme",
+  "devDependencies": {
+    "@babel/cli": "^7.13.14",
+    "@babel/core": "^7.13.15",
+    "@babel/preset-env": "^7.13.15"
+  }
 }
