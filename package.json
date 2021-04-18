@@ -4,7 +4,10 @@
   "description": "- `index.html`\r - `index.js` : backtick(`) 사용(ES6문법)으로 IE에서는 오류 발생하도록 작성했습니다.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "sample": "echo \"npm sample 명령어를 입력하면 이 메시지가 출력됩니다.\"",
+    "start": "npm run build",
+    "build": "npx babel index.js -d lib"
   },
   "repository": {
     "type": "git",

@@ -134,3 +134,55 @@ npx babel index.js -d lib
 
 ### !참고! git에 올릴 예정이라면
 - `/lib` 폴더 내용은 babel 명령어 실행시 언제든 생성가능하므로 `gitignore`에 추가 (여기서는 결과물도 올릴겸 그냥 git으로 올릴예정)
+
+
+여기까지 git branch : https://github.com/sosohanya/sample-babel/tree/step04-npx-babel 
+
+# 덧. `package.json` 파일의 `"scripts"` 설정으로 Babel 명령어 단축하기 
+
+기본 내용 
+```json
+{
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    }
+}
+```
+
+* `npm test` : "scripts" 개체의 미리 지정된 속성 "test"에 지정된 명령을 실행 
+```shell
+npm test
+```
+명령어를 실행하면 명령 프롬프트창에 명령어와, "Error: no test specified"가 찍히는 것을 확인할 수 있다. 
+
+
+"scripts"에 속성 추가해보기 
+```json
+{
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "sample": "echo \"npm sample 명령어를 입력하면 이 메시지가 출력됩니다.\"",
+        "start": "npm run build",
+        "build": "npx babel index.js -d lib"
+    }
+}
+```
+
+* `sample` : 사용자 지정 속성 "sample"에 지정된 명령을 실행 (사용자 지정 속성은 `npm run <user defined>` )
+```shell
+npm run sample
+```
+
+* `build` : 사용자 지정 속성 "build"에 지정된 명령을 실행 
+```shell
+npm run build
+```
+
+`npx babel index.js -d lib` 명령어를 직접 실행한것고 동일한 역할 
+
+* `start` : "scripts" 개체의 미리 지정된 속성 "start"에 지정된 명령을 실행 
+```shell
+npm start 
+```
+
+"start" -> "build"를 호출하므로 `npx babel index.js -d lib` 명령어를 직접 실행한것고 동일한 역할 
