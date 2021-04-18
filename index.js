@@ -1,0 +1,1 @@
+document.getElementById("root").innerHTML = `<div>index.js 파일에서 보여주는 내용 </div>`;
