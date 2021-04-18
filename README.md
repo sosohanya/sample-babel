@@ -72,7 +72,7 @@ npm install --save-dev @babel/core @babel/cli @babel/preset-env
 - `package-lock.json` 파일이 생성됨
 - `package.json` 파일이 수정됨
 
-### 3.3 F 파일 생성 및 설정
+### 3.3 babel.config.json 파일 생성 및 설정
 
 #### 3.3.1 `babel.config.json` 파일 생성
 #### 3.3.2 아래 내용 입력 
@@ -101,3 +101,36 @@ Babel은 브라우저가 이해할 수 있는 코드로 변환(build?)해 주는
 - `/node_modules` 폴더내의 엄청나게 많은 파일들이 git 변경사항으로 표시됨
 - `/node_modules` 폴더 내용은 `npm install`로 언제든 생성가능하므로 `gitignore`에 추가 
 
+여기까지 git branch : https://github.com/sosohanya/sample-babel/tree/step03-babel-install
+
+
+## 4. Babel 실행 
+
+### 4.1 Babel 실행 
+```shell
+./node_modules/.bin/babel index.js --out-dir lib
+```
+
+또는 (npm 5.2.0 버전 이상이라면 아래 명령어도 사용가능)
+```shell
+npx babel index.js -d lib
+```
+
+### 4.2 위 명령어 실행 후 
+- `/lib` 폴더가 생성되었고, 하위에 `index.js` 파일이 만들어졌습니다. 
+    - `/lib/index.js` 파일 내용이 ES5문법으로 변경 된것을 확인할수 있습니다. 
+
+### 4.3 index.html 에서 lib/index.js 경로로 변경 
+
+```html
+<script src="lib/index.js"></script> <!-- index.js -> lib/index.js -->
+```
+- 크롬 / IE에서 동작 확인     
+
+
+### !참고! `babel.config.json`이 없는 상태에서 위 명령어 실행했을 경우 
+- `/lib/index.js` 파일이 만들어 지는것은 동일하지만, `/lib/index.js` 파일 내용이 변환전과 동일한것을 확인할 수 있다. 
+
+
+### !참고! git에 올릴 예정이라면
+- `/lib` 폴더 내용은 babel 명령어 실행시 언제든 생성가능하므로 `gitignore`에 추가 (여기서는 결과물도 올릴겸 그냥 git으로 올릴예정)
